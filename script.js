@@ -219,8 +219,12 @@ function addToCart(id, price, imageUrl, name) {
 }
 
 function renderCartPizzas() {
+    let count = 0
     const pizzas = JSON.parse(localStorage.getItem('cart')) || []
+    localStorage.setItem('totalPizzas', pizzas.length)
+
     pizzas.forEach((item, index) => {
+        count = count + Number(item.price)
         document.querySelector('.cart-pizza-list').insertAdjacentHTML('beforeend',
             `
             <div class="flex items-center justify-between w-[100%]">
@@ -242,6 +246,10 @@ function renderCartPizzas() {
             `
         )
     })
+
+    localStorage.setItem('totalPrice', count)
+
+
 }
 
 function removePizza(index) {
@@ -250,7 +258,6 @@ function removePizza(index) {
     localStorage.setItem('cart', JSON.stringify(pizzas))
     document.querySelector('.cart-pizza-list').innerHTML = ''
     renderCartPizzas()
-
 }
 
 renderCartPizzas()
