@@ -46,6 +46,10 @@
                         <p class="text-slate-400">Самая вкусная пицца во вселенной</p>
                     </div>
                 </div>
+                <div>
+                    <input class="search px-5 py-2 rounded-full outline-none border-slate-300 border w-[300px]"
+                        type="text" placeholder="Искать пиццу">
+                </div>
                 <div
                     class="cursor-pointer cart-button bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
                     <span>520тг</span>
@@ -56,17 +60,24 @@
                     </div>
                 </div>
             </header>
-            <section class="mt-10 flex justify-between items-center">
+            <section class="mt-10 flex justify-between items-start">
                 <div class="flex gap-3 items-center font-bold categories">
                     <!-- <button class="bg-slate-100 text-black px-5 py-3 rounded-full">Мясные</button> -->
                 </div>
-                <div class="flex items-center gap-2">
-                    <img src="./img/arrow-up.svg" alt="">
-                    <p>Сортировка по: </p>
-                    <a class="text-orange-400 border-b-2 border-dotted border-orange-500" href="#">популярности</a>
+                <div class="conteiner">
+                    <div class="tog flex items-center gap-2 cursor-pointer">
+                        <img class="img" src="./img/arrow-up.svg" alt="">
+                        <p>Сортировка по: </p>
+                        <a class="text-orange-400 border-b-2 border-dotted border-orange-500" href="#">популярности</a>
+                    </div>
+                    <div class="list-items">
+                        <span>По возрастанию</span>
+                        <span>По возрастанию</span>
+                        <span>По возрастанию</span>
+                    </div>
                 </div>
             </section>
-            <h2 class="text-3xl font-bold my-10">Все пиццы</h2>
+            <h2 class="text-3xl font-bold my-10 translate-y-[-110px]">Все пиццы</h2>
             <section id="pizzaList" class="flex items-center gap-10 justify-start flex-wrap">
 
             </section>
