@@ -50,15 +50,28 @@
                     <input class="search px-5 py-2 rounded-full outline-none border-slate-300 border w-[300px]"
                         type="text" placeholder="Искать пиццу">
                 </div>
-                <div
-                    class="cursor-pointer cart-button bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
-                    <span>520тг</span>
-                    <div class="bg-orange-300 w-[1px] h-6"></div>
-                    <div class="flex items-center gap-2">
-                        <img src=" img/cart.svg" alt="">
-                        <span>3</span>
+                <div class="flex items-center gap-3 right-block">
+
+
+                    <div
+                        class="cursor-pointer sign-button bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <span>Войти</span>
+                        <div class="bg-orange-300 w-[1px] h-6"></div>
+                        <span>Регистрация</span>
                     </div>
+
+                    <div
+                        class="cursor-pointer cart-button bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <span>520тг</span>
+                        <div class="bg-orange-300 w-[1px] h-6"></div>
+                        <div class="flex items-center gap-2">
+                            <img src=" img/cart.svg" alt="">
+                            <span>3</span>
+                        </div>
+                    </div>
+
                 </div>
+
             </header>
             <section class="mt-10 flex justify-between items-start">
                 <div class="flex gap-3 items-center font-bold categories">
@@ -71,13 +84,12 @@
                         <a class="text-orange-400 border-b-2 border-dotted border-orange-500" href="#">популярности</a>
                     </div>
                     <div class="list-items">
-                        <span>По возрастанию</span>
-                        <span>По возрастанию</span>
-                        <span>По возрастанию</span>
+                        <span class="up">По возрастанию цены</span>
+                        <span class="down">По убыванию цены</span>
                     </div>
                 </div>
             </section>
-            <h2 class="text-3xl font-bold my-10 translate-y-[-110px]">Все пиццы</h2>
+            <h2 class="text-3xl font-bold my-10 mt-[-70px]">Все пиццы</h2>
             <section id="pizzaList" class="flex items-center gap-10 justify-start flex-wrap">
 
             </section>

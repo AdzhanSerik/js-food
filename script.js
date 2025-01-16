@@ -19,7 +19,8 @@ document.querySelector('.close').addEventListener('click', () => {
 const categories = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
 const categoriesList = document.querySelector('.categories')
 
-function renderCategories(indexCategory) {
+async function renderCategories(indexCategory) {
+    const pizzas = await getPizzas('')
     categoriesList.innerHTML = ''
     categories.forEach((item, index) => {
         categoriesList.insertAdjacentHTML('beforeend',
@@ -33,11 +34,11 @@ function renderCategories(indexCategory) {
         buttonCategory.addEventListener('click', () => {
             renderCategories(index)
             if (index == 0) {
-                renderPizzas(pizzas)
+                renderPizzas('')
             }
             else {
                 const pizzaCategory = pizzas.filter(pizza => pizza.category == index)
-                renderPizzas(pizzaCategory)
+                renderPizzas('', pizzaCategory)
             }
 
         })
@@ -50,14 +51,14 @@ const pizzaList = document.querySelector('#pizzaList')
 
 renderPizzas('')
 
-async function getPizzas(searchValue) {
-    const response = await fetch(API + `?name=*${searchValue}*`)
+async function getPizzas(searchValue, sort) {
+    const response = await fetch(API + (searchValue != '' ? '?name=*' + searchValue + '*' : '') + (sort ? '?sortBy=' + sort : ''))
     const data = await response.json()
     return data
 }
 
-async function renderPizzas(searchValue) {
-    const pizzas = await getPizzas(searchValue)
+async function renderPizzas(searchValue, sort) {
+    const pizzas = await getPizzas(searchValue, sort)
     pizzaList.innerHTML = ''
     pizzas.forEach(item => {
         pizzaList.insertAdjacentHTML('beforeend', `
@@ -164,4 +165,27 @@ const listItems = document.querySelector('.list-items')
 document.querySelector('.tog').addEventListener('click', () => {
     listItems.classList.toggle('whatch')
     img.classList.toggle('rotate-180')
-})  
+})
+
+
+// По убыванию и по возрастанию цены сортировка
+document.querySelector('.up').addEventListener('click', () => {
+    renderPizzas('', 'price')
+    listItems.classList.remove('whatch')
+})
+
+document.querySelector('.down').addEventListener('click', () => {
+    renderPizzas('', '-price')
+    listItems.classList.remove('whatch')
+})
+// По убыванию и по возрастанию цены сортировка
+
+
+document.querySelector('.sign-button').addEventListener('click', () => {
+    window.location.href = 'signIn.html'
+})
+
+const userNameLocal = localStorage.getItem('userName')
+if (userNameLocal) {
+    document.querySelector('.right-block').prepend(`Привет, ${userNameLocal}`)
+}
