@@ -194,3 +194,13 @@ document.querySelector('.exit-button').addEventListener('click', () => {
     localStorage.removeItem('userName')
     document.location.reload()
 })
+
+const userName = localStorage.getItem('userName')
+if (!userName) {
+    document.querySelector('.exit-button').style.display = 'none'
+    document.querySelector('.sign-button').style.display = 'block'
+}
+else {
+    document.querySelector('.exit-button').style.display = 'block'
+    document.querySelector('.sign-button').style.display = 'none'
+}
