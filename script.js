@@ -189,3 +189,8 @@ const userNameLocal = localStorage.getItem('userName')
 if (userNameLocal) {
     document.querySelector('.right-block').prepend(`Привет, ${userNameLocal}`)
 }
+
+document.querySelector('.exit-button').addEventListener('click', () => {
+    localStorage.removeItem('userName')
+    document.location.reload()
+})
