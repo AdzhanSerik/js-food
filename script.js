@@ -7,6 +7,7 @@ search.oninput = () => {
     renderPizzas(searchValue)
 }
 
+
 const cartButton = document.querySelector('.cart-button')
 cartButton.addEventListener('click', () => {
     document.querySelector('.cart').classList.remove('hidden')
@@ -108,6 +109,13 @@ function addToCart(id, price, imageUrl, name) {
     renderCartPizzas()
     changeTotalPizza()
 
+    Swal.fire({
+        title: "Отличный выбор",
+        text: `Пицца "${name}" добавлена в корзину!`,
+        icon: "success"
+    });
+
+
 
 
 
@@ -164,6 +172,7 @@ function removePizza(index) {
     localStorage.setItem('cart', JSON.stringify(pizzas))
     document.querySelector('.cart-pizza-list').innerHTML = ''
     renderCartPizzas()
+    changeTotalPizza()
 
 }
 
