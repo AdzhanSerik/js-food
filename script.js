@@ -82,10 +82,6 @@ async function renderPizzas(searchValue, sort) {
                             <div onclick="addToCart(${item.id}, ${item.price}, '${item.imageUrl}', '${item.name}')" data-id="${item.id}" class="cursor-pointer flex gap-2 items-center border-orange-400 border-[2px] p-3 rounded-full">
                                 <img src="./img/plus.svg" alt="">
                                 <span>Добавить</span>
-                                <span
-                                    class="w-4 h-4 flex items-center justify-center bg-orange-500 p-3 rounded-full text-white text-[15px] font-bold">
-                                    2
-                                </span>
                             </div>
                         </div>
                     </div>
