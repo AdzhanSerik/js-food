@@ -1,7 +1,7 @@
 const API = 'https://272048b109ede573.mokky.dev/pizzas'
 const search = document.querySelector('.search')
 // const pizzas = ''
-
+changeTotalPizza()
 search.oninput = () => {
     const searchValue = search.value
     renderPizzas(searchValue)
@@ -106,6 +106,22 @@ function addToCart(id, price, imageUrl, name) {
     localStorage.setItem('cart', JSON.stringify(cart))
     document.querySelector('.cart-pizza-list').innerHTML = ''
     renderCartPizzas()
+    changeTotalPizza()
+
+
+
+
+
+}
+
+function changeTotalPizza() {
+    document.querySelectorAll('.total-pizza-price').forEach((item) => {
+        item.textContent = JSON.parse(localStorage.getItem('totalPrice')) || 0
+    })
+
+    document.querySelectorAll('.total-pizza-count').forEach((item) => {
+        item.textContent = JSON.parse(localStorage.getItem('totalPizzas')) || 0
+    })
 }
 
 function renderCartPizzas() {
@@ -148,6 +164,7 @@ function removePizza(index) {
     localStorage.setItem('cart', JSON.stringify(pizzas))
     document.querySelector('.cart-pizza-list').innerHTML = ''
     renderCartPizzas()
+
 }
 
 renderCartPizzas()
@@ -156,6 +173,7 @@ document.querySelector('.remove-cart').addEventListener('click', () => {
     localStorage.setItem('cart', '[]')
     document.querySelector('.cart-pizza-list').innerHTML = ''
     renderCartPizzas()
+    changeTotalPizza()
 })
 
 
