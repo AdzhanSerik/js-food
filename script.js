@@ -39,7 +39,8 @@ async function renderCategories(indexCategory) {
             }
             else {
                 const pizzaCategory = pizzas.filter(pizza => pizza.category == index)
-                renderPizzas('', pizzaCategory)
+                //renderPizzas('', pizzaCategory)
+                renderPizzas(`&category=${index}`)
             }
 
         })

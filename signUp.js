@@ -1,7 +1,7 @@
-const API = 'https://272048b109ede573.mokky.dev/users'
+const API = 'http://localhost:3000/api/auth/signUp'
 
-async function addUser(firstName, lastName, email, userPassword) {
-    await fetch(API, {
+async function addUser(firstName, lastName, email, passwordUser) {
+    const addUser = await fetch(API, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -10,9 +10,20 @@ async function addUser(firstName, lastName, email, userPassword) {
             firstName,
             lastName,
             email,
-            userPassword
+            passwordUser
         })
     })
+
+    if (addUser.ok) {
+        Swal.fire({
+            title: "Отлично!",
+            text: `Регистрация прошла успешно`,
+            icon: "success"
+        });
+        setTimeout(() => {
+            document.location.href = './signIn.html'
+        }, 2000)
+    }
 
 }
 
@@ -24,6 +35,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     const email = document.querySelector('.email').value
     const password = document.querySelector('.password').value
     await addUser(firstName, lastName, email, password)
-    document.location.href = './signIn.html'
+
 
 })
+
