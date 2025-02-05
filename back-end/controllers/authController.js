@@ -1,12 +1,4 @@
-const users = [
-    {
-        id: 1,
-        firstName: "Serik",
-        lastName: "Adzhan",
-        email: "adzhan.serik@gmail.com",
-        passwordUser: "qwerty123"
-    }
-]
+const users = []
 
 const getUsers = (req, res) => {
     res.json(users)
@@ -23,7 +15,12 @@ const signIn = (req, res) => {
 const signUp = (req, res) => {
     const user = req.body
 
-    users.push(user)
+    users.push(
+        {
+            id: users.length == 0 ? 1 : users.length + 1,
+            ...user
+        }
+    )
     console.log(users)
     res.json(user)
 }
