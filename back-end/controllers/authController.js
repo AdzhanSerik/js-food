@@ -1,4 +1,12 @@
-const users = []
+const users = [
+    {
+        id: 1,
+        firstName: "Serik",
+        lastName: "Adzhan",
+        email: "adzhan.serik@gmail.com",
+        passwordUser: "qwerty123"
+    }
+]
 
 const getUsers = (req, res) => {
     res.json(users)

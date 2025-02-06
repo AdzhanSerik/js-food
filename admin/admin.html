@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="admin.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-orange-400 p-10">
+        <div class="bg-white p-10 rounded-3xl">
+            <header class="flex justify-between">
+                <div class="flex items-center gap-4">
+                    <img src="../img/logo.svg" alt="">
+                    <div>
+                        <h1 class="text-xl font-bold">JS PIZZA</h1>
+                        <p class="text-slate-400">Админ панель</p>
+                    </div>
+                </div>
+
+                <div class="tab-buttons flex items-center gap-3 right-block">
+                    <div class="cursor-pointer bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <a href="../index.html">Перейти на сайт</a>
+                    </div>
+                    <div data-tab="1"
+                        class="tab-button cursor-pointer bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <a href="#">Список продуктов</a>
+                    </div>
+                    <div data-tab="2"
+                        class="tab-button cursor-pointer bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <a href="#">Добавить продукт</a>
+                    </div>
+                    <div data-tab="3"
+                        class="tab-button cursor-pointer bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <a href="#">Список заказов</a>
+                    </div>
+                    <div data-tab="4"
+                        class="tab-button cursor-pointer bg-orange-500 p-3 flex items-center gap-3 text-white rounded-full">
+                        <a href="#">Пользователи</a>
+                    </div>
+                </div>
+
+            </header>
+
+            <section class="tab-contents mt-12 text-xl">
+                <div class="tab-content active" data-tab="1">
+                    <h1>Список продуктов</h1>
+
+                </div>
+                <div class="tab-content" data-tab="2">
+                    <h1>Добавить продукт</h1>
+                </div>
+                <div class="tab-content" data-tab="3">
+                    <h1>Список заказов</h1>
+                </div>
+                <div class="tab-content" data-tab="4">
+                    <h1>Пользователи</h1>
+                </div>
+            </section>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
